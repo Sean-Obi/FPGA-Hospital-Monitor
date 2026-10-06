@@ -481,45 +481,6 @@ substitute for real data.
 
 ---
 
-## Results so far
-
-| | Status |
-|---|---|
-| Bitstream builds, timing met (WNS +71.9 ns at 12 MHz) | measured |
-| Alive LED, serial at 500 Hz, 0 bad lines in 114k messages | measured |
-| Analogue path: 0 / 4051 / 2030 counts for ground / 3.3 V / AD8232 idle | measured |
-| First beats detected from a live ECG (`B0034`, with the default threshold) | measured — threshold needs tuning |
-| Temperature and SpO₂ paths | simulated end to end; hardware pending |
-| PhysioNet sensitivity / PPV / F1 | tooling ready; not yet run on a real record |
-
----
-
-## Layout
-
-```
-rtl/          the design. Everything here goes into Vivado, nothing else does.
-tb/           testbenches, plus the XADC and MAX30102 simulation models.
-              None of this goes into synthesis.
-practice/     Verilog exercises from learning the language. Not part of the design.
-constraints/  ecg_monitor.xdc is the one to use.
-hardware/     kicad/   the shield schematic, board and custom footprint
-              tools/   the scripts that generate them
-              images/  renders used in this README
-scripts/      ecg_monitor.py        the hospital-style display (live, or PhysioNet playback)
-              ecg_serial_monitor.py the plain live plot, --dump, and the serial reader class
-              ascii_scope.py        waveform in the terminal, no GUI libraries
-              run_all_sims.py       every testbench, pass/fail
-              make_ecg_hex.py, score_detection.py   PhysioNet validation
-data/         generated ECG and detection files.
-build/        generated simulation binaries.
-```
-
-The `practice/` files are kept because they are where the patterns in the
-real modules came from — the clock divider in `sample_tick.v`, the shift
-register inside `uart.v`, and the state machines in `telemetry_uart.v` and
-`i2c_master.v` are the same ideas, grown up.
-
----
 
 ## Known limitations
 
