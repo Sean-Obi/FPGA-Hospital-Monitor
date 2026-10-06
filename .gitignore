@@ -1,0 +1,37 @@
+# Python virtual environment - never commit this
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Simulation output
+build/
+*.out
+*.vcd
+*.vvp
+
+# Generated ECG data (regenerate with scripts/make_ecg_hex.py)
+data/*.hex
+data/*_beats.txt
+data/detected_beats.txt
+data/_sweep*
+
+# Vivado
+*.jou
+*.log
+*.str
+.Xil/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.xpr
+
+# OS
+.DS_Store
+Thumbs.db
+capture*.txt
+.venv312/
+hardware/kicad/*-backups/
+hardware/kicad/*.kicad_prl

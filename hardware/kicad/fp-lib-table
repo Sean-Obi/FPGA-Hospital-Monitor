@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ECG")(type "KiCad")(uri "${KIPRJMOD}/ECG.pretty")(options "")(descr "Cmod A7 DIP-48 socket footprint for the vital signs shield"))
+)

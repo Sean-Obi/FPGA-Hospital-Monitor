@@ -1,0 +1,2945 @@
+(kicad_sch
+  (version 20230121)
+  (generator eeschema)
+  (uuid "7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d")
+  (paper "A4")
+  (title_block
+    (title "FPGA Hospital Monitor - sensor shield for the Cmod A7")
+    (date "2026-10-06")
+    (rev "1")
+    (comment 1 "ECG (AD8232), SpO2 (MAX30102), skin temperature (TMP36)")
+    (comment 2 "All signal processing is in the FPGA; this board only powers and connects the sensors."))
+  (lib_symbols
+    (symbol "ECG:CmodA7"
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "Cmod A7-35T"
+        (at 0 -8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" "ECG:CmodA7_DIP48"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "CmodA7_0_1"
+        (rectangle
+          (start -22.86 7.62)
+          (end 22.86 -7.62)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "CmodA7_1_1"
+        (pin output line
+          (at -27.939999999999998 5.08 0)
+          (length 5.08)
+          (name "BUZZER  (DIP 1, pio1)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin bidirectional line
+          (at -27.939999999999998 2.54 0)
+          (length 5.08)
+          (name "SCL  (DIP 2, pio2)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin bidirectional line
+          (at -27.939999999999998 0.0 0)
+          (length 5.08)
+          (name "SDA  (DIP 3, pio3)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -27.939999999999998 -2.54 0)
+          (length 5.08)
+          (name "ECG  (DIP 15, ain15)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "15"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -27.939999999999998 -5.079999999999999 0)
+          (length 5.08)
+          (name "TEMP  (DIP 16, ain16)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "16"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_out line
+          (at 27.939999999999998 5.08 180)
+          (length 5.08)
+          (name "VU  (DIP 24)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "24"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at 5.08 -12.7 90)
+          (length 5.08)
+          (name "GND  (DIP 25)"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "25"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "power:GND"
+      (power)
+      (pin_names
+        (offset 0))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "#PWR"
+        (at 0 -6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Value" "GND"
+        (at 0 -3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "global power"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Power symbol creates a global label with name \"GND\" , ground"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "GND_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "GND_1_1"
+        (pin power_in line
+          (at 0 0 270)
+          (length 0) hide
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "ECG:AD8232_Module"
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (at 0 7.619999999999999 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "AD8232 ECG breakout"
+        (at 0 -7.619999999999999 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "AD8232_Module_0_1"
+        (rectangle
+          (start -10.16 6.35)
+          (end 10.16 -6.35)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "AD8232_Module_1_1"
+        (pin output line
+          (at 15.24 3.8099999999999996 180)
+          (length 5.08)
+          (name "OUTPUT"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 15.24 1.2699999999999996 180)
+          (length 5.08)
+          (name "LO-"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 15.24 -1.2700000000000005 180)
+          (length 5.08)
+          (name "LO+"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at 15.24 -3.8100000000000005 180)
+          (length 5.08)
+          (name "SDN"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "6"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 11.43 270)
+          (length 5.08)
+          (name "3.3V"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at 5.08 -11.43 90)
+          (length 5.08)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "power:+3V3"
+      (power)
+      (pin_names
+        (offset 0))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "#PWR"
+        (at 0 -3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Value" "+3V3"
+        (at 0 3.556 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "global power"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Power symbol creates a global label with name \"+3V3\""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "+3V3_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "+3V3_1_1"
+        (pin power_in line
+          (at 0 0 90)
+          (length 0) hide
+          (name "+3V3"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "ECG:MAX30102_Module"
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "MAX30102 oximeter module"
+        (at 0 -8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "MAX30102_Module_0_1"
+        (rectangle
+          (start -10.16 7.62)
+          (end 10.16 -7.62)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "MAX30102_Module_1_1"
+        (pin bidirectional line
+          (at 15.24 5.08 180)
+          (length 5.08)
+          (name "SCL"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin bidirectional line
+          (at 15.24 2.54 180)
+          (length 5.08)
+          (name "SDA"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 15.24 0.0 180)
+          (length 5.08)
+          (name "INT"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 15.24 -2.54 180)
+          (length 5.08)
+          (name "IRD"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 15.24 -5.079999999999999 180)
+          (length 5.08)
+          (name "RD"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "6"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 12.7 270)
+          (length 5.08)
+          (name "VIN"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at 5.08 -12.7 90)
+          (length 5.08)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "7"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "ECG:TMP36_Leads"
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "TMP36 on leads"
+        (at 0 -3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "TMP36_Leads_0_1"
+        (rectangle
+          (start -10.16 2.54)
+          (end 10.16 -2.54)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "TMP36_Leads_1_1"
+        (pin output line
+          (at 15.24 0.0 180)
+          (length 5.08)
+          (name "Vout"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 7.62 270)
+          (length 5.08)
+          (name "+Vs"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at 5.08 -7.62 90)
+          (length 5.08)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "Device:C"
+      (pin_numbers hide)
+      (pin_names
+        (offset 0.254))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "C"
+        (at 0.635 2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Value" "C"
+        (at 0.635 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Footprint" ""
+        (at 0.9652 -3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "cap capacitor"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Unpolarized capacitor"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "C_*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "C_0_1"
+        (polyline
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762))
+          (stroke
+            (width 0.508)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762))
+          (stroke
+            (width 0.508)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "C_1_1"
+        (pin passive line
+          (at 0 3.81 270)
+          (length 2.794)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at 0 -3.81 90)
+          (length 2.794)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "Amplifier_Operational:MCP6002-xP"
+      (pin_names
+        (offset 0.127))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 5.08 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Value" "MCP6002-xP"
+        (at 0 -5.08 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_locked" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "dual opamp"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "1MHz, Low-Power Op Amp, DIP-8"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "MCP6002-xP_1_1"
+        (polyline
+          (pts
+            (xy -5.08 5.08)
+            (xy 5.08 0)
+            (xy -5.08 -5.08)
+            (xy -5.08 5.08))
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background)))
+        (pin output line
+          (at 7.62 0 180)
+          (length 2.54)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -7.62 -2.54 0)
+          (length 2.54)
+          (name "-"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -7.62 2.54 0)
+          (length 2.54)
+          (name "+"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (symbol "MCP6002-xP_2_1"
+        (polyline
+          (pts
+            (xy -5.08 5.08)
+            (xy 5.08 0)
+            (xy -5.08 -5.08)
+            (xy -5.08 5.08))
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background)))
+        (pin input line
+          (at -7.62 2.54 0)
+          (length 2.54)
+          (name "+"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -7.62 -2.54 0)
+          (length 2.54)
+          (name "-"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "6"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin output line
+          (at 7.62 0 180)
+          (length 2.54)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "7"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (symbol "MCP6002-xP_3_1"
+        (pin power_in line
+          (at -2.54 -7.62 90)
+          (length 3.81)
+          (name "V-"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -2.54 7.62 270)
+          (length 3.81)
+          (name "V+"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "8"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "Regulator_Linear:MCP1700x-330xxTO"
+      (pin_names
+        (offset 0.254))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at -3.81 -3.175 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "MCP1700x-330xxTO"
+        (at 0 -3.175 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+        (at 0 -5.08 0)
+        (effects
+          (font
+            (size 1.27 1.27) italic) hide))
+      (property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/20001826D.pdf"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "regulator linear ldo"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "250mA Low Quiscent Current LDO, 3.3V output, TO-92"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "TO?92*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "MCP1700x-330xxTO_0_1"
+        (rectangle
+          (start -5.08 5.08)
+          (end 5.08 -1.905)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "MCP1700x-330xxTO_1_1"
+        (pin power_in line
+          (at 0 7.62 270)
+          (length 2.54)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -7.62 0 0)
+          (length 2.54)
+          (name "VI"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_out line
+          (at 7.62 0 180)
+          (length 2.54)
+          (name "VO"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "power:PWR_FLAG"
+      (power)
+      (pin_numbers hide)
+      (pin_names
+        (offset 0) hide)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "#FLG"
+        (at 0 1.905 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Value" "PWR_FLAG"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "flag power"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Special symbol for telling ERC where power comes from"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "PWR_FLAG_0_0"
+        (pin power_out line
+          (at 0 0 90)
+          (length 0)
+          (name "pwr"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (symbol "PWR_FLAG_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 1.27)
+            (xy -1.016 1.905)
+            (xy 0 2.54)
+            (xy 1.016 1.905)
+            (xy 0 1.27))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))))
+    (symbol "Device:R"
+      (pin_numbers hide)
+      (pin_names
+        (offset 0))
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "R"
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "R res resistor"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Resistor"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "R_*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "R_0_1"
+        (rectangle
+          (start -1.016 -2.54)
+          (end 1.016 2.54)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "R_1_1"
+        (pin passive line
+          (at 0 3.81 270)
+          (length 1.27)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at 0 -3.81 90)
+          (length 1.27)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "Device:Buzzer"
+      (pin_names
+        (offset 0.0254) hide)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "BZ"
+        (at 3.81 1.27 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Value" "Buzzer"
+        (at 3.81 -1.27 0)
+        (effects
+          (font
+            (size 1.27 1.27))
+          (justify left)))
+      (property "Footprint" ""
+        (at -0.635 2.54 90)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at -0.635 2.54 90)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "quartz resonator ceramic"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Buzzer, polarized"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "*Buzzer*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "Buzzer_0_1"
+        (arc
+          (start 0 -3.175)
+          (mid 3.1612 0)
+          (end 0 3.175)
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy -1.651 1.905)
+            (xy -1.143 1.905))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy -1.397 2.159)
+            (xy -1.397 1.651))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none)))
+        (polyline
+          (pts
+            (xy 0 3.175)
+            (xy 0 -3.175))
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "Buzzer_1_1"
+        (pin passive line
+          (at -2.54 2.54 0)
+          (length 2.54)
+          (name "+"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at -2.54 -2.54 0)
+          (length 2.54)
+          (name "-"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27))))))))
+  (symbol
+    (lib_id "ECG:CmodA7")
+    (at 228.6 83.82 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ca59224b-f232-4dfa-9b17-ec2fdc2f8e82")
+    (property "Reference" "U3"
+      (at 228.6 71.55 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "Cmod A7-35T"
+      (at 228.6 74.08999999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "ECG:CmodA7_DIP48"
+      (at 228.6 83.82 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 228.6 83.82 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "9edad995-c53c-44de-8985-043096399cd8"))
+    (pin "2"
+      (uuid "a532c10f-9688-4780-8cc4-a3450cec4257"))
+    (pin "3"
+      (uuid "bcb258b4-6e06-4e87-af84-967ac68ac076"))
+    (pin "15"
+      (uuid "01f3f182-90d5-4778-8c9e-da0e73a6ddf0"))
+    (pin "16"
+      (uuid "3109a164-cd7c-45bb-81e0-fee7da4a50ff"))
+    (pin "24"
+      (uuid "b80e0158-fe12-4ab9-8bf8-71fef97f0ee7"))
+    (pin "25"
+      (uuid "713f5552-1c2f-4abc-bd49-c118af9435c2"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "U3")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 200.66 78.74)
+      (xy 195.58 78.74))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "96c5ca52-f95d-41ec-8cb9-e4681edb4235"))
+  (label "BUZZER"
+    (at 195.58 78.74 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "6d04252f-48aa-4131-b880-85111250a4c7"))
+  (wire
+    (pts
+      (xy 200.66 81.28)
+      (xy 195.58 81.28))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "ab479012-1e79-4b93-8b7c-41c6e0443785"))
+  (label "SCL"
+    (at 195.58 81.28 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "7a26e1bb-5959-4a09-876b-c8911c14b2a4"))
+  (wire
+    (pts
+      (xy 200.66 83.82)
+      (xy 195.58 83.82))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "5cb54e6b-18bc-429a-873d-02f8768c8958"))
+  (label "SDA"
+    (at 195.58 83.82 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "57228a42-64fc-43c5-8802-9ddef36add02"))
+  (wire
+    (pts
+      (xy 200.66 86.36)
+      (xy 195.58 86.36))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "899e52e0-cce5-40b2-8d5b-718e2f829c9e"))
+  (label "ECG"
+    (at 195.58 86.36 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "1e01193b-3bf5-4c9e-8f84-d7981c9618ef"))
+  (wire
+    (pts
+      (xy 200.66 88.9)
+      (xy 195.58 88.9))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "634a9f66-5d30-4108-967e-33ede8b5f9af"))
+  (label "TEMP"
+    (at 195.58 88.9 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "226f76d7-35bb-44d2-8110-c08e9386e10d"))
+  (wire
+    (pts
+      (xy 256.54 78.74)
+      (xy 261.62 78.74))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "202434df-8d23-49b7-aecc-1afffad9566f"))
+  (label "VU"
+    (at 261.62 78.74 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left bottom))
+    (uuid "65f82d5f-62f0-4a06-9ac2-ff9eb0d0bd94"))
+  (symbol
+    (lib_id "power:GND")
+    (at 233.68 96.52 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ca6a85ad-e1bb-41cf-aeff-377efa8a238b")
+    (property "Reference" "#PWR01"
+      (at 233.68 95.25 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 233.68 100.33 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 233.68 96.52 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 233.68 96.52 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "a097dcab-c522-428b-bda8-8acd20871463"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR01")
+          (unit 1)))))
+  (symbol
+    (lib_id "ECG:AD8232_Module")
+    (at 40.64 55.88 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "b4bc93d7-ed33-4969-9e77-594e03a9f226")
+    (property "Reference" "J1"
+      (at 40.64 32.61 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "AD8232 ECG breakout"
+      (at 40.64 35.15 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
+      (at 40.64 55.88 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 40.64 55.88 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "3"
+      (uuid "8784bbe1-c4d1-43e0-ba27-389477214daf"))
+    (pin "4"
+      (uuid "140fceb5-9d66-4a8a-984d-e7268a9bdaf2"))
+    (pin "5"
+      (uuid "610fdce2-979d-4ca3-a0c8-c761e591aeed"))
+    (pin "6"
+      (uuid "659daaaf-47f5-4f3c-92d4-fe55347e6a48"))
+    (pin "2"
+      (uuid "e3500406-8dd6-492f-82a4-2c65856a3519"))
+    (pin "1"
+      (uuid "e8a955cd-a062-46d4-ae92-a76f420361e0"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "J1")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 35.56 44.45 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1f29fa76-881c-46c2-9b9e-776bf9087ffc")
+    (property "Reference" "#PWR02"
+      (at 35.56 43.18 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 35.56 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 35.56 44.45 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 35.56 44.45 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "a6c46cb4-0bcf-47c7-9b02-9d5b575e277c"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR02")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 45.72 67.31 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "9d0cb312-4bc5-4f23-be9a-d6413f493899")
+    (property "Reference" "#PWR03"
+      (at 45.72 66.04 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 45.72 71.12 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 45.72 67.31 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 45.72 67.31 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "a9bed943-6538-41c1-abf8-0667cda51074"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR03")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 55.88 52.07)
+      (xy 60.96 52.07))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "eec79f74-1c8e-4206-a8c4-c23bb4474b03"))
+  (label "ECG"
+    (at 60.96 52.07 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left bottom))
+    (uuid "bf9c70fb-05f1-43ea-80d0-3747ed19971b"))
+  (no_connect
+    (at 55.88 54.61)
+    (uuid "db2a904d-8cb9-4f95-8482-56648b85bfdf"))
+  (no_connect
+    (at 55.88 57.15)
+    (uuid "e5f4ad91-5994-4003-a89f-79a45076139f"))
+  (no_connect
+    (at 55.88 59.69)
+    (uuid "e954c12e-84ca-479a-adc2-e821003eabf5"))
+  (text "LO-, LO+, SDN not used (SDN is pulled up on the breakout)"
+    (at 25.4 76.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "65f41fa4-499d-4bea-ada6-5ae7386c0989"))
+  (symbol
+    (lib_id "ECG:MAX30102_Module")
+    (at 40.64 104.14 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "096ae166-10f9-4d37-b5ae-676db8884838")
+    (property "Reference" "J2"
+      (at 40.64 78.87 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "MAX30102 oximeter module"
+      (at 40.64 81.41000000000001 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical"
+      (at 40.64 104.14 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 40.64 104.14 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "2"
+      (uuid "e9f686bd-2402-408b-aae7-098521d12e80"))
+    (pin "3"
+      (uuid "03fe5400-2f2d-4456-b3a6-243b29cc30ab"))
+    (pin "4"
+      (uuid "f94ab447-fad0-47be-9c0f-ba68f6383153"))
+    (pin "5"
+      (uuid "ed46ccd4-b894-4213-867b-f7a761bb529e"))
+    (pin "6"
+      (uuid "be73b563-acde-4f00-b68c-ebfe262cc246"))
+    (pin "1"
+      (uuid "5f27a9e4-079d-41dc-bec1-01eed2dae0f6"))
+    (pin "7"
+      (uuid "a9b0d8f4-a417-49ac-980f-081ff05ecf7a"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "J2")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 35.56 91.44 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "f18d81fb-e4cb-4b49-a58a-a04edc13f80f")
+    (property "Reference" "#PWR04"
+      (at 35.56 90.17 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 35.56 87.63 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 35.56 91.44 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 35.56 91.44 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "32a3b485-0c71-4925-97b7-23e76cae5668"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR04")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 45.72 116.84 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "3af9d599-9534-46ab-b78a-5794e4ff78cf")
+    (property "Reference" "#PWR05"
+      (at 45.72 115.57000000000001 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 45.72 120.65 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 45.72 116.84 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 45.72 116.84 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "381d17f1-08d9-4b32-98a1-d610f0f4d5fd"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR05")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 55.88 99.06)
+      (xy 60.96 99.06))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "eb50ad2d-7719-401c-8a07-561698f2a0a3"))
+  (label "SCL"
+    (at 60.96 99.06 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left bottom))
+    (uuid "ea3b5c47-5aba-420d-b65b-2309c4583027"))
+  (wire
+    (pts
+      (xy 55.88 101.6)
+      (xy 60.96 101.6))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "2def46fc-0cd8-4635-9aeb-68dedd92870d"))
+  (label "SDA"
+    (at 60.96 101.6 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left bottom))
+    (uuid "1a933dc8-bb88-4532-bc18-56b2c2b96c0b"))
+  (no_connect
+    (at 55.88 104.14)
+    (uuid "864835e8-4f87-42d1-97ac-c21ce5c31728"))
+  (no_connect
+    (at 55.88 106.68)
+    (uuid "bd99f11a-b592-4147-aa41-8aa2d108936b"))
+  (no_connect
+    (at 55.88 109.22)
+    (uuid "8aff3d9c-e12d-4693-bd87-029964851104"))
+  (text "I2C pull-ups are on the module: set its jumper to 3.3 V"
+    (at 25.4 126.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "46abdd1a-e5ce-45a4-94d8-2cdf8f034635"))
+  (symbol
+    (lib_id "ECG:TMP36_Leads")
+    (at 40.64 152.4 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "34d75795-0822-41c2-af00-7841df0dbd7e")
+    (property "Reference" "J3"
+      (at 40.64 129.13 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "TMP36 on leads"
+      (at 40.64 131.67 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
+      (at 40.64 152.4 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 40.64 152.4 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "2"
+      (uuid "eabff841-811b-4cac-82a4-8ea5aa05afa5"))
+    (pin "1"
+      (uuid "1e7eb8b4-6d7e-423f-9038-61cf3c32ba09"))
+    (pin "3"
+      (uuid "894a7e2c-56c9-40e9-9d01-21d52a593eab"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "J3")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 35.56 144.78 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "37599570-c9d7-4caa-9059-55d020aef12d")
+    (property "Reference" "#PWR06"
+      (at 35.56 143.51 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 35.56 140.97 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 35.56 144.78 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 35.56 144.78 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "9d990b63-4ec0-459d-914c-d204fc9cebac"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR06")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 45.72 160.02 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "b271022c-519f-472d-9837-dba55b2e9baf")
+    (property "Reference" "#PWR07"
+      (at 45.72 158.75 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 45.72 163.83 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 45.72 160.02 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 45.72 160.02 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "32435f90-58dc-4365-853c-b9b272d8206c"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR07")
+          (unit 1)))))
+  (symbol
+    (lib_id "Device:C")
+    (at 58.42 142.24 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ec8c4bb7-2265-42fd-98ac-cc35599ddbdb")
+    (property "Reference" "C3"
+      (at 63.42 140.97 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "100n"
+      (at 63.42 143.51 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+      (at 58.42 142.24 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 58.42 142.24 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "04aa8049-b6a5-4edd-b5c0-d1c153940beb"))
+    (pin "2"
+      (uuid "a5547c89-ab3b-42f3-bbf0-8d0173fbebef"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "C3")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 35.56 144.78)
+      (xy 35.56 142.24))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "b12912a5-a3cd-4e35-99e6-dbb06b4e72e2"))
+  (wire
+    (pts
+      (xy 35.56 142.24)
+      (xy 58.42 142.24))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "9b184b9a-eeba-464c-bdc4-4a601548ec07"))
+  (wire
+    (pts
+      (xy 58.42 142.24)
+      (xy 58.42 138.43))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "a94a5710-1831-4ea5-976b-c2062c04f06e"))
+  (symbol
+    (lib_id "power:GND")
+    (at 58.42 146.05 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "d6271c37-f8a7-46aa-937a-057747b2b6c7")
+    (property "Reference" "#PWR08"
+      (at 58.42 144.78 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 58.42 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 58.42 146.05 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 58.42 146.05 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "f3b9d812-29dd-4c0f-8625-3f014fc295ed"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR08")
+          (unit 1)))))
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xP")
+    (at 99.06 149.86 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "bd2c68e0-c192-42b5-a99b-18bb022a9da7")
+    (property "Reference" "U1"
+      (at 99.06 138.59 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "MCP6002"
+      (at 99.06 141.13 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+      (at 99.06 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 99.06 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "21089334-5d53-4e6a-938c-e90342b04c78"))
+    (pin "2"
+      (uuid "311ed383-e9b5-4f11-9043-a2944c2e8ae6"))
+    (pin "3"
+      (uuid "2ca43a0e-5179-43ce-8d16-3fc246f07978"))
+    (pin "5"
+      (uuid "db4638b9-804e-4d32-80a0-e52c605a0642"))
+    (pin "6"
+      (uuid "52da570b-8838-4895-b585-1369ca674f28"))
+    (pin "7"
+      (uuid "8f35a823-1e3c-4bec-bf53-6ef6c325d18b"))
+    (pin "4"
+      (uuid "21933641-18da-4558-a046-ca1be6e21a74"))
+    (pin "8"
+      (uuid "db543f96-a8c8-4e62-b2ed-f63c316d50fc"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "U1")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 55.88 152.4)
+      (xy 63.5 152.4))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "61cd6744-0b37-44cd-af64-cce2a7fe6998"))
+  (wire
+    (pts
+      (xy 63.5 152.4)
+      (xy 63.5 147.32))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "fe67dbb3-3e97-4a4a-95b8-9d26d570bfeb"))
+  (wire
+    (pts
+      (xy 63.5 147.32)
+      (xy 91.44 147.32))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f65b4c3e-91a6-49d7-a36f-5f1c430c0e70"))
+  (wire
+    (pts
+      (xy 106.68 149.86)
+      (xy 109.22 149.86))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "c7af9509-f2bc-44bb-820c-823cbe1610f1"))
+  (wire
+    (pts
+      (xy 109.22 149.86)
+      (xy 109.22 157.48))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "0fcd8e7a-43af-4b62-939d-6b69682673d0"))
+  (wire
+    (pts
+      (xy 109.22 157.48)
+      (xy 88.9 157.48))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "3e47cf55-044a-4801-b20d-59d34d97be9d"))
+  (wire
+    (pts
+      (xy 88.9 157.48)
+      (xy 88.9 152.4))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "d27bbb35-fbc1-41f8-9e60-27205b432ae4"))
+  (wire
+    (pts
+      (xy 88.9 152.4)
+      (xy 91.44 152.4))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "fd854085-c18e-4d3c-affb-577a2270c9f9"))
+  (junction
+    (at 109.22 149.86)
+    (diameter 0)
+    (color 0 0 0 0)
+    (uuid "7b5d9b28-c6b0-4297-97c5-17dd94ce371f"))
+  (wire
+    (pts
+      (xy 109.22 149.86)
+      (xy 114.3 149.86))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "deba4969-0fa2-4e6c-8be1-c4b55cf2d47a"))
+  (label "TEMP"
+    (at 114.3 149.86 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left bottom))
+    (uuid "11efc65b-faba-4a0d-a271-3cd8d87eb4cd"))
+  (text "Unity-gain buffer: the TMP36 can source only 50 uA,"
+    (at 76.2 166.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "0b407958-7562-4697-8694-69a2a301ad3a"))
+  (text "the Cmod input divider needs ~250 uA. Same volts, more current."
+    (at 76.2 168.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "d581eb83-71f1-4e18-904d-57b17ce04729"))
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xP")
+    (at 99.06 185.42 0)
+    (unit 2)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1e17df55-de8c-4225-b7fe-0114d49ade07")
+    (property "Reference" "U1"
+      (at 99.06 174.14999999999998 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "MCP6002"
+      (at 99.06 176.68999999999997 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+      (at 99.06 185.42 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 99.06 185.42 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "e3763672-b40d-47e1-aebd-c65ba922411c"))
+    (pin "2"
+      (uuid "27639dd4-77c9-42e3-a422-4b22e706ef3e"))
+    (pin "3"
+      (uuid "34d5e3f4-deb5-4625-ada8-82da2aa9be57"))
+    (pin "5"
+      (uuid "72926427-d5ed-4776-85a4-f4e012b87317"))
+    (pin "6"
+      (uuid "a6211663-6386-4a8a-a7e0-3474853d0b58"))
+    (pin "7"
+      (uuid "de133ad7-1c53-467a-bedf-1b25d343efa9"))
+    (pin "4"
+      (uuid "933d9724-6167-4ba4-821f-561c850ca8c2"))
+    (pin "8"
+      (uuid "66968a2e-4ef8-4116-a312-83d61975350a"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "U1")
+          (unit 2)))))
+  (wire
+    (pts
+      (xy 91.44 182.88)
+      (xy 88.9 182.88))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "2268aff5-5102-4b32-90be-21f4275bd923"))
+  (symbol
+    (lib_id "power:GND")
+    (at 88.9 182.88 180)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "cb37858b-1b25-4bb8-9d45-47eb15c222f9")
+    (property "Reference" "#PWR09"
+      (at 88.9 181.60999999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 88.9 179.07 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 88.9 182.88 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 88.9 182.88 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "8f896d04-cb44-4fbe-9512-dac260d0069d"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR09")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 106.68 185.42)
+      (xy 109.22 185.42))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "2850bfa6-7929-48c6-88ce-4fbf1f4ecff7"))
+  (wire
+    (pts
+      (xy 109.22 185.42)
+      (xy 109.22 193.04))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "aafb6e60-bee5-4af4-9af2-bee160d4a348"))
+  (wire
+    (pts
+      (xy 109.22 193.04)
+      (xy 88.9 193.04))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "b8ed12c7-8048-483d-8194-e55bd66efce0"))
+  (wire
+    (pts
+      (xy 88.9 193.04)
+      (xy 88.9 187.96))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "cdfbeeae-353c-4ef2-b796-8e8f9fa3d9b6"))
+  (wire
+    (pts
+      (xy 88.9 187.96)
+      (xy 91.44 187.96))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "04efbded-b963-4ede-8030-9ecbbb12d0fb"))
+  (text "Unused half tied off"
+    (at 88.9 198.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "49f35ebc-eb95-4eeb-ac00-6b4808c068be"))
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xP")
+    (at 139.7 149.86 0)
+    (unit 3)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "daf34f95-8ace-4d67-be3b-5466f0bb6d2e")
+    (property "Reference" "U1"
+      (at 145.7 148.59 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "MCP6002"
+      (at 145.7 151.13 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+      (at 139.7 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 139.7 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "996cea05-07bf-4f1d-a4c1-23d5171a01f7"))
+    (pin "2"
+      (uuid "f67d0a4d-4055-44c3-81ba-149ae705457e"))
+    (pin "3"
+      (uuid "63e57ada-2e9f-4541-91ba-efd8696d5fa5"))
+    (pin "5"
+      (uuid "840585b1-a5e1-4f8e-b839-0813006788f0"))
+    (pin "6"
+      (uuid "342600d8-bce1-4152-ba23-dd53981a5556"))
+    (pin "7"
+      (uuid "5a9dae12-c645-40ea-a4a7-8cba6d4096af"))
+    (pin "4"
+      (uuid "98d0bd27-f430-4c6c-b1a3-f329675b00de"))
+    (pin "8"
+      (uuid "0452943e-4a9a-446f-a65e-9ea25f098634"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "U1")
+          (unit 3)))))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 137.16 142.24 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "5d407484-c8bf-4da6-88dd-872bd931e308")
+    (property "Reference" "#PWR10"
+      (at 137.16 140.97 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 137.16 138.43 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 137.16 142.24 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 137.16 142.24 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "e67bca55-58af-4c4f-9ebd-ba446915bf4c"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR10")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 137.16 157.48 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "0a2c28f0-34ad-4c52-bdf5-417f3d3b6151")
+    (property "Reference" "#PWR11"
+      (at 137.16 156.20999999999998 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 137.16 161.29 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 137.16 157.48 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 137.16 157.48 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "dbbb4cde-72db-4b09-9e01-de792ee0f016"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR11")
+          (unit 1)))))
+  (symbol
+    (lib_id "Device:C")
+    (at 152.4 149.86 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "8c394888-d5c9-4d02-87a9-cfcf41173706")
+    (property "Reference" "C4"
+      (at 157.4 148.59 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "100n"
+      (at 157.4 151.13 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+      (at 152.4 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 152.4 149.86 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "ffbbc644-bb37-4298-a805-02b896480630"))
+    (pin "2"
+      (uuid "1094e2b1-311e-4fcc-94f4-90c9c355b168"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "C4")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 152.4 146.05 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "84a5d1c0-6847-4fea-accf-7375dc60be85")
+    (property "Reference" "#PWR12"
+      (at 152.4 144.78 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 152.4 142.24 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 152.4 146.05 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 152.4 146.05 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "bb3f7241-dfde-4cd3-83fd-860b13ab2511"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR12")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 152.4 153.67 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "bd390032-c1e4-4253-9609-9314d6623034")
+    (property "Reference" "#PWR13"
+      (at 152.4 152.39999999999998 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 152.4 157.48 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 152.4 153.67 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 152.4 153.67 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "dd951248-7131-492a-aef8-41518dfdee00"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR13")
+          (unit 1)))))
+  (symbol
+    (lib_id "Regulator_Linear:MCP1700x-330xxTO")
+    (at 111.76 45.72 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "7546c3eb-f29b-494e-9617-b5475ee70934")
+    (property "Reference" "U2"
+      (at 111.76 54.449999999999996 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "MCP1700-3302"
+      (at 111.76 56.989999999999995 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+      (at 111.76 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 111.76 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "23eef90a-a3f2-42f2-9d2a-6206308194da"))
+    (pin "2"
+      (uuid "b628878e-f261-49dc-be0d-67f9cd354285"))
+    (pin "3"
+      (uuid "c460001a-0ec5-4815-8c77-0f41ea6a72b1"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "U2")
+          (unit 1)))))
+  (symbol
+    (lib_id "power:GND")
+    (at 111.76 38.1 180)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "e1f642d2-266b-48e4-ae03-a0ba99233567")
+    (property "Reference" "#PWR14"
+      (at 111.76 36.83 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 111.76 34.29 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 111.76 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 111.76 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "6510d944-7867-43f3-a18d-ab32fdc8b3bf"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR14")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 104.14 45.72)
+      (xy 96.52 45.72))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "2062c1fe-4c3d-4013-adf9-87c682e65442"))
+  (wire
+    (pts
+      (xy 96.52 45.72)
+      (xy 86.36 45.72))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "74d9db1a-c01c-43cd-9c31-b6c3f76d1299"))
+  (label "VU"
+    (at 86.36 45.72 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "96643020-e8f3-4238-a95c-db529f1140b8"))
+  (symbol
+    (lib_id "Device:C")
+    (at 96.52 53.34 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "b70d8726-3f6a-49f5-8894-3fc51b91ee41")
+    (property "Reference" "C1"
+      (at 101.52 52.07 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "1u"
+      (at 101.52 54.61 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+      (at 96.52 53.34 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 96.52 53.34 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "be2b3eef-4f29-40bf-bbf4-eec112923870"))
+    (pin "2"
+      (uuid "8d377f78-887e-4076-ad3f-2cf36d05b1b9"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "C1")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 96.52 45.72)
+      (xy 96.52 49.53))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "954d9d6b-c53e-41fe-951a-75990bb02ba0"))
+  (junction
+    (at 96.52 45.72)
+    (diameter 0)
+    (color 0 0 0 0)
+    (uuid "2864df60-6e91-4974-94fb-cfb0a0e316dc"))
+  (symbol
+    (lib_id "power:GND")
+    (at 96.52 57.15 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ccb97419-8d16-4b97-a455-9c9dee421a88")
+    (property "Reference" "#PWR15"
+      (at 96.52 55.879999999999995 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 96.52 60.96 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 96.52 57.15 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 96.52 57.15 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "7356e3db-9922-4660-8429-eef90307387b"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR15")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 96.52 45.72)
+      (xy 96.52 40.64))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "2c6309bb-a9f6-43d7-a3da-13b8ff71ab2a"))
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 96.52 40.64 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4dff72e3-49bf-4a1a-812b-5ac478b88f71")
+    (property "Reference" "#PWR16"
+      (at 96.52 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "PWR_FLAG"
+      (at 96.52 41.91 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Footprint" ""
+      (at 96.52 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 96.52 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "a33eb476-3091-4cb5-afaf-7c41f81ca06e"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR16")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 119.38 45.72)
+      (xy 127.0 45.72))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "8e66b944-58cd-482c-82fe-474a7db49eb4"))
+  (wire
+    (pts
+      (xy 127.0 45.72)
+      (xy 132.08 45.72))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "e6f33466-c713-4d84-b84d-6187a7a74bd3"))
+  (symbol
+    (lib_id "power:+3V3")
+    (at 132.08 45.72 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "8e144d24-2edb-4576-a684-60bc61e10f55")
+    (property "Reference" "#PWR17"
+      (at 132.08 44.449999999999996 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "+3V3"
+      (at 132.08 41.91 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 132.08 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 132.08 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "e195a235-30a7-4c70-b2d2-bcad870a1ec4"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR17")
+          (unit 1)))))
+  (symbol
+    (lib_id "Device:C")
+    (at 127.0 53.34 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "2531cc50-85d7-42bb-9f9d-6cc8f8497cc3")
+    (property "Reference" "C2"
+      (at 132.0 52.07 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "1u"
+      (at 132.0 54.61 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+      (at 127.0 53.34 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 127.0 53.34 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "d2cb8825-f09e-4b6d-b7de-32cf459f823a"))
+    (pin "2"
+      (uuid "344f17a2-4e05-409a-b0b4-50349b531ff6"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "C2")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 127.0 45.72)
+      (xy 127.0 49.53))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f720c76a-7c17-4eee-899f-9efbfa85e3ea"))
+  (junction
+    (at 127.0 45.72)
+    (diameter 0)
+    (color 0 0 0 0)
+    (uuid "2702131d-64e3-46f4-a9df-5a4028806a6b"))
+  (symbol
+    (lib_id "power:GND")
+    (at 127.0 57.15 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "5d999add-2588-41c5-a863-6666001e20f1")
+    (property "Reference" "#PWR18"
+      (at 127.0 55.879999999999995 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 127.0 60.96 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 127.0 57.15 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 127.0 57.15 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "b58d1133-81ea-46e3-971b-ead4dc50e815"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR18")
+          (unit 1)))))
+  (text "VU is the USB 5 V after a Schottky diode on the Cmod: about 4.7 V."
+    (at 83.82 66.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "1c4194f0-de8a-4712-905e-e4eb7ad6fe69"))
+  (text "MCP1700 dropout is 0.18 V, so 3.3 V out is comfortable. Max 250 mA."
+    (at 83.82 68.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "8fc906ac-c1a9-4f6f-9321-634a54b95b5c"))
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 157.48 45.72 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "397e05c6-e0ac-4498-b517-5973814d2381")
+    (property "Reference" "#PWR19"
+      (at 157.48 44.449999999999996 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "PWR_FLAG"
+      (at 157.48 46.989999999999995 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Footprint" ""
+      (at 157.48 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 157.48 45.72 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "aa87b0b7-12a5-446a-901e-66072f6b6622"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR19")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 157.48 45.72)
+      (xy 157.48 50.8))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "34a6261d-a90d-48a4-83d1-2e8d250117c8"))
+  (symbol
+    (lib_id "power:GND")
+    (at 157.48 50.8 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ec30e6a3-a553-4ae3-8342-d0a91a1ac8e2")
+    (property "Reference" "#PWR20"
+      (at 157.48 49.529999999999994 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 157.48 54.61 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 157.48 50.8 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 157.48 50.8 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "f5cdb473-114f-4e42-a889-cf124545f3ff"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR20")
+          (unit 1)))))
+  (symbol
+    (lib_id "Device:R")
+    (at 165.1 109.22 90)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "fb31ef9e-1f2d-48e2-8907-0275f161a5b3")
+    (property "Reference" "R1"
+      (at 165.1 103.95 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "150"
+      (at 165.1 113.22 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+      (at 165.1 109.22 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 165.1 109.22 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "af4fd9ef-5e87-4c8c-a4ca-d703521709f9"))
+    (pin "2"
+      (uuid "6f71f9bd-0d4c-498d-a75c-57b266830367"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "R1")
+          (unit 1)))))
+  (symbol
+    (lib_id "Device:Buzzer")
+    (at 182.88 111.76 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "d9d574a2-6c6c-4d81-9cb8-fce210fa0476")
+    (property "Reference" "BZ1"
+      (at 182.88 101.49000000000001 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "passive buzzer"
+      (at 182.88 104.03000000000002 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Buzzer_Beeper:Buzzer_12x9.5RM7.6"
+      (at 182.88 111.76 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 182.88 111.76 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "e22f0e28-f1af-4de0-82ff-aa3147cf1aba"))
+    (pin "2"
+      (uuid "1074c8f2-0e8d-472d-b246-bb17330c31db"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "BZ1")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 153.67 109.22)
+      (xy 161.29 109.22))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "ed72e2c4-1f61-4500-8fbc-d06891442a48"))
+  (label "BUZZER"
+    (at 153.67 109.22 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "93ac4b0d-c23a-4357-a52b-8bb10b7fc505"))
+  (wire
+    (pts
+      (xy 168.91 109.22)
+      (xy 177.8 109.22))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "c3690a06-85ec-49ac-88ac-023d97da4caf"))
+  (wire
+    (pts
+      (xy 177.8 109.22)
+      (xy 177.8 109.22))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "1193bbe6-c3cd-4685-8638-df6edb0a0c88"))
+  (wire
+    (pts
+      (xy 177.8 109.22)
+      (xy 180.34 109.22))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "758b511e-a85d-4b1a-9e3c-5890a1f74ff6"))
+  (wire
+    (pts
+      (xy 180.34 114.3)
+      (xy 177.8 114.3))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "61e3000f-01ca-47f0-bea8-892590894392"))
+  (symbol
+    (lib_id "power:GND")
+    (at 177.8 114.3 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "9400bb36-9e27-40fe-928d-aac30230b225")
+    (property "Reference" "#PWR21"
+      (at 177.8 113.03 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 177.8 118.11 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 177.8 114.3 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 177.8 114.3 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "301b578a-4102-4f5d-9a8d-80edd24c8d1a"))
+    (instances
+      (project "hospital_monitor_shield"
+        (path "/7c1e4a3e-0f7c-4f3e-9d2a-1e0f2a3b4c5d"
+          (reference "#PWR21")
+          (unit 1)))))
+  (text "Series resistor limits the FPGA pin current (LVCMOS33 ~12 mA)."
+    (at 152.4 124.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "3525e74d-1556-4873-8cf9-7b904c5c688e"))
+  (text "Signals to the Cmod A7 DIP pins:  BUZZER=1  SCL=2  SDA=3  ECG=15  TEMP=16   power: VU=24  GND=25"
+    (at 25.4 25.0 0)
+    (effects
+      (font
+        (size 1.4 1.4))
+      (justify left bottom))
+    (uuid "4d9a6203-45f2-4ef2-a078-18b6ee99bfc9"))
+  (text "ECG and TEMP are 0-3.3 V analogue inputs; the Cmod divides them to 0-1 V for the XADC (VAUX4, VAUX12)."
+    (at 25.4 28.0 0)
+    (effects
+      (font
+        (size 1.0 1.0))
+      (justify left bottom))
+    (uuid "e653dc7c-14ab-426c-ae21-328d1e97ee11"))
+  (sheet_instances
+    (path "/"
+      (page "1"))))
