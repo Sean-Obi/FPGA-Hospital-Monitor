@@ -90,20 +90,6 @@ Measured on hardware: 0 bad lines in 114,000 messages.
 
 ### The Cmod A7 pins this design uses
 
-```
-        ┌───────────────────────────────────────────┐
-    1 ──┤ buzzer                                    ├── 48
-    2 ──┤ SCL  (MAX30102)                           ├── 47
-    3 ──┤ SDA  (MAX30102)                           ├── 46
-    ⋮   │           Cmod A7-35T, top view           │    ⋮
-   15 ──┤ ECG in   (AD8232 OUTPUT)                  ├── 34
-   16 ──┤ TEMP in  (TMP36, via buffer)              ├── 33
-    ⋮   │                                           │    ⋮
-   24 ──┤ VU  ~4.7 V when USB attached — avoid      ├── 25  GND
-        └───────────────────────────────────────────┘
-
-   Pmod JA (the 2x6 socket on top):  pins 5 & 11 = GND,  pins 6 & 12 = 3.3 V
-```
 
 **Only two of the 48 DIP pins are power:** pin 24 (VU) and pin 25 (GND).
 There is **no 3.3 V on the DIP header** — it is only on the Pmod socket.
@@ -231,29 +217,6 @@ no change to run on the shield.
 
 ![PCB front](hardware/images/pcb_front_render.png)
 
-![PCB back](hardware/images/pcb_back_render.png)
-
-Rendered as it would come from the fab: green mask, white silk, tinned
-pads. The back is a solid ground pour. Sensors along the left edge so
-their cables leave away from the USB plug; the regulator and its
-capacitors next to where VU arrives; the op-amp next to the temperature
-socket so the unbuffered, high-impedance node is as short as possible.
-
-The design checks clean: 0 unconnected pads, 0 DRC violations with a
-0.2 mm clearance / 0.5 mm track rule set, which any hobby fab accepts.
-
-**Generated, not drawn.** `hardware/tools/` builds both files from one
-Python description — the schematic is written as KiCad's s-expression
-format with the library symbols embedded, the board is placed through
-KiCad's own `pcbnew` module and routed with Freerouting; the renders
-above are composited from the layer exports. That is how the schematic's
-netlist and the board were kept in step, and it means the whole thing is
-reproducible from source. `hardware/kicad/README.md` has the commands.
-
-Not yet done: the board has not been ordered or built. The breadboard
-measurements in the bring-up section were all taken without it.
-
----
 
 ## How the numbers are worked out
 
