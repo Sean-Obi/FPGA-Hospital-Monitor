@@ -1,6 +1,6 @@
 # FPGA Hospital Monitor
 
-<img width="500" height="238" alt="image" src="https://github.com/user-attachments/assets/917063fa-8222-4964-81d5-ee6e89facd55" />
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/917063fa-8222-4964-81d5-ee6e89facd55" />
 
 
 A three-channel patient monitor built on an FPGA: **ECG and heart rate**,
