@@ -88,7 +88,8 @@ Measured on hardware: 0 bad lines in 114,000 messages.
 | TMP36 | analogue temperature sensor, TO-92 |
 | MCP6002 or LM358 | dual op-amp, used as a unity-gain buffer for the TMP36 |
 | 0.1 µF capacitor | decoupling for the TMP36 |
-| Passive buzzer + 100–220 Ω resistor | magnetic types need a transistor instead |
+| Piezo buzzer (passive) + 100–220 Ω resistor | a piezo draws well under 1 mA, so it runs straight off the FPGA pin |
+| magnetic types need a transistor instead |
 | Full-size breadboard + male jumpers | the Cmod straddles the centre channel |
 
 ### The Cmod A7 pins this design uses
