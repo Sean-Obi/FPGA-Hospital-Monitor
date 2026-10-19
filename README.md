@@ -169,7 +169,7 @@ takes about 5 s (two 2.56 s blocks).
 
 ### Buzzer
 
-DIP pin 1 (`buzzer`, package pin M3) → 100–220 Ω → buzzer **+**. Buzzer **−** to GND.
+DIP pin 1 (`piezo`, package pin M3) → 100–220 Ω → buzzer **+**. Buzzer **−** to GND.
 
 ### Safety
 
@@ -211,7 +211,7 @@ What is on it, and why:
 | J3 | 1 × 3 socket | the TMP36 on a short lead, so it can be taped to skin |
 | U1, C4 | MCP6002 dual op-amp, 100 nF | unity-gain buffer for the TMP36 (50 µA source limit vs the Cmod's 250 µA input divider); the spare half is tied off |
 | C3 | 100 nF | decoupling at the TMP36 supply, as its datasheet asks |
-| R1, BZ1 | 150 Ω, passive buzzer | beat beep; the resistor keeps the FPGA pin under its 12 mA rating |
+| R1, BZ1 | 150 Ω, piezo buzzer | beat beep; the resistor keeps the FPGA pin under its 12 mA rating |
 | H1–H4 | M3 holes | so it can be stood off a desk or screwed into a case |
 
 The analogue inputs stay single-ended into DIP pins 15 and 16, as on the
