@@ -313,7 +313,7 @@ will try to compile it and fail looking for `qmake`.
 python scripts/run_all_sims.py
 ```
 
-Builds and runs all 19 testbenches, about 70 seconds. Run it after
+Builds and runs 19 of the 20 testbenches, about 70 seconds (the PhysioNet validation bench runs separately, below). Run it after
 changing anything in `rtl/`. The top-level test feeds a synthetic ECG into
 the XADC model, a synthetic pulse into the MAX30102 model, a known code
 into the temperature channel, and decodes the serial line bit by bit like
